@@ -7,7 +7,7 @@ export default class TasksController {
   async index({ auth }: HttpContext) {
     // Show Tasks
     const user = auth.getUserOrFail()
-    const task = await Task.query().where('userId', user.id).firstOrFail()
+    const task = await Task.query().where('userId', user.id)
     return task
   }
 
