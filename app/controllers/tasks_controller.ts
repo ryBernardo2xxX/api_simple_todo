@@ -4,9 +4,11 @@ import Category from '#models/category'
 import { validateTask, validateUpdateTask } from '#validators/task'
 
 export default class TasksController {
-  async index({}: HttpContext) {
+  async index({ auth }: HttpContext) {
     // Show Tasks
-    return await Task.all()
+    const user = auth.getUserOrFail()
+    const task = await Task.query().where('userId', user.id).firstOrFail()
+    return task
   }
 
   async store({ request, auth, response }: HttpContext) {
@@ -30,9 +32,14 @@ export default class TasksController {
     })
   }
 
-  async show({ params }: HttpContext) {
+  async show({ params, auth }: HttpContext) {
     // Show an Task
-    return await Task.findOrFail(params.id)
+    const user = auth.getUserOrFail()
+    const task = await Task.query()
+      .where('taskId', params.id)
+      .where('userId', user.id)
+      .firstOrFail()
+    return task
   }
 
   async update({ params, auth, request, response }: HttpContext) {
