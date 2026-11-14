@@ -7,7 +7,7 @@ export const validateTask = vine.create({
   }),
   description: vine.string().trim().minLength(2).maxLength(100),
   category: vine.string(),
-  is_done: vine.boolean().optional(),
+  isDone: vine.boolean().optional(),
 })
 
 export const validateUpdateTask = vine.create(
