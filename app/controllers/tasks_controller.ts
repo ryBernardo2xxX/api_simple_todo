@@ -8,7 +8,7 @@ export default class TasksController {
     // Show Tasks
     const user = auth.getUserOrFail()
     const task = await Task.query().where('userId', user.id)
-    return 
+    return task
   }
 
   async store({ request, auth, response }: HttpContext) {
