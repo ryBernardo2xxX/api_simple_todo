@@ -6,7 +6,9 @@ export default class CategoriesController {
   async index({ auth }: HttpContext) {
     const user = auth.getUserOrFail()
     const categories = await Category.query().where('userId', user.id)
-    return []
+    if (categories) {
+      return []
+    }
   }
 
   async store({ request, auth }: HttpContext) {
