@@ -5,10 +5,7 @@ import { categoryValidator, updateCategoryValidator } from '#validators/category
 export default class CategoriesController {
   async index({ auth }: HttpContext) {
     const user = auth.getUserOrFail()
-    const categories = await Category.query().where('userId', user.id)
-    if (categories) {
-      return []
-    }
+    return await Category.query().where('userId', user.id)
   }
 
   async store({ request, auth }: HttpContext) {
