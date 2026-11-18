@@ -4,6 +4,8 @@ type ParamValue = string | number | bigint | boolean
 
 export type ScannedRoutes = {
   ALL: {
+    'health_checks.live': { paramsTuple?: []; params?: {} }
+    'health_checks.ready': { paramsTuple?: []; params?: {} }
     'auth.new_account.store': { paramsTuple?: []; params?: {} }
     'auth.access_tokens.store': { paramsTuple?: []; params?: {} }
     'profile.profile.show': { paramsTuple?: []; params?: {} }
@@ -20,6 +22,8 @@ export type ScannedRoutes = {
     'tasks.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
   }
   GET: {
+    'health_checks.live': { paramsTuple?: []; params?: {} }
+    'health_checks.ready': { paramsTuple?: []; params?: {} }
     'profile.profile.show': { paramsTuple?: []; params?: {} }
     'categories.index': { paramsTuple?: []; params?: {} }
     'categories.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
@@ -27,6 +31,8 @@ export type ScannedRoutes = {
     'tasks.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
   }
   HEAD: {
+    'health_checks.live': { paramsTuple?: []; params?: {} }
+    'health_checks.ready': { paramsTuple?: []; params?: {} }
     'profile.profile.show': { paramsTuple?: []; params?: {} }
     'categories.index': { paramsTuple?: []; params?: {} }
     'categories.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
