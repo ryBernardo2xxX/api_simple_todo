@@ -8,6 +8,18 @@ export type { Route, Path } from './schema.d.ts'
 const placeholder: any = {}
 
 const routes = {
+  'health_checks.live': {
+    methods: ["GET","HEAD"],
+    pattern: '/health/live',
+    tokens: [[0,"health"],[0,"live"]],
+    types: placeholder as Registry['health_checks.live']['types'],
+  },
+  'health_checks.ready': {
+    methods: ["GET","HEAD"],
+    pattern: '/health/ready',
+    tokens: [[0,"health"],[0,"ready"]],
+    types: placeholder as Registry['health_checks.ready']['types'],
+  },
   'auth.new_account.store': {
     methods: ["POST"],
     pattern: '/api/v1/auth/signup',
