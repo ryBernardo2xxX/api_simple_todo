@@ -15,9 +15,8 @@ router.get('/', () => {
   return { hello: 'world' }
 })
 
-router.get('/health', async () => {
-  return { status: 'ok' }
-})
+router.get('/health/live', [controllers.HealthChecks, 'live'])
+router.get('/health/ready', [controllers.HealthChecks, 'ready'])
 
 router
   .group(() => {
