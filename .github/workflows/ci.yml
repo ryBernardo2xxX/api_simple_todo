@@ -48,7 +48,6 @@ jobs:
       DB_USER: postgres
       DB_PASSWORD: postgres
       DB_DATABASE: app_test
-      DB_STATUS: 'ok'
 
     steps:
       - uses: actions/checkout@v5
