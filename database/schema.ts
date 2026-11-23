@@ -67,6 +67,7 @@ export class TaskSchema extends BaseModel {
     'description',
     'dueDate',
     'isDone',
+    'priority',
     'taskId',
     'title',
     'updatedAt',
@@ -83,6 +84,8 @@ export class TaskSchema extends BaseModel {
   declare dueDate: DateTime
   @column()
   declare isDone: boolean | null
+  @column()
+  declare priority: string | null
   @column({ isPrimary: true })
   declare taskId: number
   @column()
