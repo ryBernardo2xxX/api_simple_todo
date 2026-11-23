@@ -8,6 +8,7 @@ export const validateTask = vine.create({
   description: vine.string().trim().minLength(2).maxLength(100),
   category: vine.string(),
   isDone: vine.boolean().optional(),
+  priority: vine.string().optional(),
 })
 
 export const validateUpdateTask = vine.create(
@@ -21,5 +22,6 @@ export const validateUpdateTask = vine.create(
     description: vine.string().trim().minLength(2).maxLength(100).optional(),
     category: vine.string().trim().optional(),
     isDone: vine.boolean().optional(),
+    priority: vine.string().optional(),
   })
 )
